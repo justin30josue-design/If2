@@ -1,0 +1,61 @@
+{
+	"geode": "5.11.2",
+	"gd": {
+		"win": "2.2081",
+		"mac": "2.2081",
+		"android": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "sleepytendo.input-buffer",
+	"name": "Input Buffer",
+	"version": "v2.1.0",
+	"developer": "SleepyTendo",
+	"description": "Clicked a few frames early? Shifts your click to the exact frame that survives.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Enabled",
+			"default": true
+		},
+		"extra-frames": {
+			"type": "int",
+			"name": "Max Early Frames",
+			"description": "How many frames early a click can be and still get moved to the frame that survives. 9 frames early with this set to 8 still dies. Higher values cost more per click.",
+			"default": 4,
+			"min": 2,
+			"max": 8,
+			"control": {
+				"arrows": true,
+				"slider": true
+			}
+		},
+		"frame-unit": {
+			"type": "string",
+			"name": "Frame Unit",
+			"description": "What a frame means. 240 = GD physics steps (use for 240 FPS frame perfects). 60 = 60 FPS frames (4 physics steps each).",
+			"default": "240 (physics steps)",
+			"one-of": [
+				"240 (physics steps)",
+				"60 (frames)"
+			]
+		},
+		"look-ahead": {
+			"type": "int",
+			"name": "Look-ahead (steps)",
+			"description": "How far ahead the mod checks that you survive, in physics steps (240 = 1 second). Higher catches more but costs more per click. If clicks stutter, lower this.",
+			"default": 45,
+			"min": 30,
+			"max": 240,
+			"control": {
+				"arrows": true,
+				"slider": true
+			}
+		},
+		"safe-mode": {
+			"type": "bool",
+			"name": "Safe Mode",
+			"description": "Runs levels in test mode so completions and percentages aren't saved while the buffer is on.",
+			"default": true
+		}
+	}
+}
